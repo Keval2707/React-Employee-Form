@@ -166,7 +166,7 @@ export const UserList = ({
                   </td>
 
                   <td>
-                    <div className="flex justify-between">
+                    <div className="flex justify-center">
                       <span>{dod === "" ? "-----" : dod}</span>
                     </div>
                   </td>
