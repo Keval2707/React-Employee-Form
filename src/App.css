@@ -1,0 +1,21 @@
+html,
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.user-list {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #aaa;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+}
+
+.user-list-head {
+  font-size: 20px;
+  font-weight: 800;
+}
