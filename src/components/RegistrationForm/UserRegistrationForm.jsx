@@ -9,7 +9,6 @@ import {
   initialState,
   getNameError,
   getEmailError,
-  // getGenderError,
   updateUserList,
   getHobbiesError,
   getLanguageError,
@@ -199,8 +198,6 @@ export function UserRegistrationForm({
             </div>
           ))}
         </div>
-
-        {/* {getErrorMsg("gender")} */}
       </div>
 
       <div className="form-group">
@@ -248,7 +245,6 @@ export function UserRegistrationForm({
           className="dropdown"
           value={user.programming}
           onChange={handleDropdownChange}
-          // multiple={true}
         >
           <option>Please choose one option</option>
           {options.map((option, index) => {
