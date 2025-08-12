@@ -150,13 +150,13 @@ export function UserRegistrationForm({
         <label htmlFor="name">Username: </label>
 
         <input
-          type="text"
           id="name"
+          type="text"
           name="name"
-          placeholder="Enter your username"
-          autoComplete="off"
           value={user.name}
+          autoComplete="off"
           onChange={handleChange}
+          placeholder="Enter your username"
         />
 
         {getErrorMsg("name")}
@@ -166,13 +166,13 @@ export function UserRegistrationForm({
         <label htmlFor="email">Email: </label>
 
         <input
-          type="email"
           id="email"
+          type="email"
           name="email"
-          placeholder="Enter your email"
           autoComplete="off"
           value={user.email}
           onChange={handleChange}
+          placeholder="Enter your email"
         />
 
         {getErrorMsg("email")}
@@ -187,10 +187,10 @@ export function UserRegistrationForm({
               <input
                 type="radio"
                 name="gender"
-                id={gender.toLowerCase()}
                 value={gender}
-                checked={user.gender === gender}
                 onChange={handleChange}
+                id={gender.toLowerCase()}
+                checked={user.gender === gender}
               />
               <label htmlFor={gender.toLowerCase()} className="text-sm">
                 {gender}
@@ -204,14 +204,14 @@ export function UserRegistrationForm({
         <label htmlFor="dob">Date of Birth: </label>
 
         <input
-          type="date"
           id="dob"
           name="dob"
-          autoComplete="off"
-          className="text-white"
-          value={user.dob}
+          type="date"
           max={user.dod}
+          value={user.dob}
+          autoComplete="off"
           onChange={handleChange}
+          className="text-white"
         />
 
         {getErrorMsg("dob")}
@@ -221,14 +221,14 @@ export function UserRegistrationForm({
         <label htmlFor="dod">Date of Death: </label>
 
         <input
-          type="date"
           id="dod"
           name="dod"
-          autoComplete="off"
-          className="text-white"
-          value={user.dod}
+          type="date"
           min={user.dob}
+          value={user.dod}
+          autoComplete="off"
           onChange={handleChange}
+          className="text-white"
         />
 
         {getErrorMsg("dod")}
@@ -240,8 +240,8 @@ export function UserRegistrationForm({
         </label>
 
         <select
-          name="programming"
           id="programming"
+          name="programming"
           className="dropdown"
           value={user.programming}
           onChange={handleDropdownChange}
@@ -264,12 +264,12 @@ export function UserRegistrationForm({
 
         <div className="flex gap-3">
           <input
-            type={showPass.password ? "text" : "password"}
             id="password"
             name="password"
-            placeholder="Enter your password"
             value={user.password}
             onChange={handleChange}
+            placeholder="Enter your password"
+            type={showPass.password ? "text" : "password"}
           />
 
           <button
@@ -289,12 +289,12 @@ export function UserRegistrationForm({
 
         <div className="flex gap-3">
           <input
-            type={showPass.confirmPassword ? "text" : "password"}
             id="confirmPassword"
             name="confirmPassword"
-            placeholder="confirm password"
-            value={user.confirmPassword}
             onChange={handleChange}
+            value={user.confirmPassword}
+            placeholder="confirm password"
+            type={showPass.confirmPassword ? "text" : "password"}
           />
 
           <button
@@ -317,10 +317,10 @@ export function UserRegistrationForm({
             {hobbiesList.map(({ name, id }, index) => (
               <div key={index} className="flex items-center gap-2">
                 <input
-                  type="checkbox"
                   name={name}
-                  id={`hobby-${id}`}
                   value={name}
+                  type="checkbox"
+                  id={`hobby-${id}`}
                   checked={isChecked[index]}
                   className="cursor-pointer"
                   onChange={(e) => handleCheckboxChange(e, index)}

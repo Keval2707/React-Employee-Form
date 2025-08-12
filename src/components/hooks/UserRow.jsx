@@ -25,7 +25,6 @@ export const UserRow = ({
     hobbies,
     password,
     programming,
-    // confirmPassword,
   } = user;
 
   return (

@@ -1,5 +1,3 @@
-import { FiEdit3 } from "react-icons/fi";
-import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useMemo, useState } from "react";
 import { filterUsersByTab, updateUserList } from "./helper";
 import { UserRow } from "../hooks/UserRow";
@@ -87,8 +85,8 @@ export const UserList = ({
               user={user}
               key={user.id}
               select={select}
-              isEditing={isEditing}
               activeTab={activeTab}
+              isEditing={isEditing}
               handleEdit={handleEdit}
               checkedItems={checkedItems}
               handleDelete={handleDeleteUser}

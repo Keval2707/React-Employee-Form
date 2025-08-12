@@ -30,10 +30,6 @@ export const getLanguageError = (value) => {
   return !value ? "Select at least one language" : "";
 };
 
-// export const getGenderError = (value) => {
-//   return !value ? "Gender is required" : "";
-// };
-
 export const getEmailError = (value) => {
   if (!value) {
     return "Email is required";
@@ -85,15 +81,15 @@ export const hobbiesList = [
 ];
 
 const rules = {
+  dob: getDOBError,
   name: getNameError,
   email: getEmailError,
-  dob: getDOBError,
-  dod: (value, user) => getDODError(user.dob, value),
-  programming: getLanguageError,
+  hobbies: getHobbiesError,
   password: getPasswordError,
+  programming: getLanguageError,
+  dod: (value, user) => getDODError(user.dob, value),
   confirmPassword: (value, user) =>
     getConfirmPasswordError(value, user.password),
-  hobbies: getHobbiesError,
 };
 
 export const validate = (user, setUserError) => {
@@ -111,9 +107,9 @@ export const getAge = (birth, death) => {
   const birthDate = new Date(birth);
   const endDate = death ? new Date(death) : new Date();
 
-  let years = endDate.getFullYear() - birthDate.getFullYear();
-  let months = endDate.getMonth() - birthDate.getMonth();
   let days = endDate.getDate() - birthDate.getDate();
+  let months = endDate.getMonth() - birthDate.getMonth();
+  let years = endDate.getFullYear() - birthDate.getFullYear();
 
   if (days < 0) {
     months -= 1;
@@ -130,11 +126,11 @@ export const getAge = (birth, death) => {
     months += 12;
   }
 
-  if (days === 0) return `${years} years, ${months} months,`;
-
   if (months === 0) return `${years} years, ${days} days`;
-
+  
   if (years === 0) return `${months} months, ${days} days`;
+  
+  if (days === 0) return `${years} years, ${months} months,`;
 
   return `${years} years, ${months} months, ${days} days`;
 };

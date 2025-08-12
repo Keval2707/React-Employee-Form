@@ -6,9 +6,9 @@ import { getUserList, initialState } from "./helper";
 
 export const RegistrationForm = () => {
   const [user, setUser] = useState(initialState);
-  const [userList, setUserList] = useState(getUserList("users"));
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState("AllUsers");
+  const [userList, setUserList] = useState(getUserList("users"));
 
   return (
     <>
