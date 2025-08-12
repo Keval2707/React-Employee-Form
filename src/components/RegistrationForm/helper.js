@@ -34,7 +34,7 @@ export const getLanguageError = (value) => {
 //   return !value ? "Gender is required" : "";
 // };
 
-export const getEmailError = (value) => { 
+export const getEmailError = (value) => {
   if (!value) {
     return "Email is required";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
@@ -84,25 +84,25 @@ export const hobbiesList = [
   { id: 4, name: "Playing" },
 ];
 
+const rules = {
+  name: getNameError,
+  email: getEmailError,
+  dob: getDOBError,
+  dod: (value, user) => getDODError(user.dob, value),
+  programming: getLanguageError,
+  password: getPasswordError,
+  confirmPassword: (value, user) =>
+    getConfirmPasswordError(value, user.password),
+  hobbies: getHobbiesError,
+};
+
 export const validate = (user, setUserError) => {
-  const errors = {
-    name: getNameError(user.name),
-    email: getEmailError(user.email),
-    // gender: getGenderError(user.gender),
-    dob: getDOBError(user.dob),
-    dod: getDODError(user.dod),
-    programming: getLanguageError(user.programming),
-    password: getPasswordError(user.password),
-    confirmPassword: getConfirmPasswordError(
-      user.confirmPassword,
-      user.password
-    ),
-    hobbies: getHobbiesError(user.hobbies),
-  };
-
+  const errors = {};
+  for (let key in rules) {
+    errors[key] = rules[key](user[key], user);
+  }
   setUserError(errors);
-
-  return Object.values(errors).some((error) => error !== "");
+  return Object.values(errors).some((e) => e);
 };
 
 export const options = ["HTML", "CSS", "JavaScript", "React", "Redux"];
@@ -137,4 +137,19 @@ export const getAge = (birth, death) => {
   if (years === 0) return `${months} months, ${days} days`;
 
   return `${years} years, ${months} months, ${days} days`;
+};
+
+export const getFromStorage = (key, defaultValue = []) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : defaultValue;
+};
+
+export const setToStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const filterUsersByTab = (list, tab) => {
+  if (tab === "ActiveUsers") return list.filter((u) => u.active);
+  if (tab === "InactiveUsers") return list.filter((u) => !u.active);
+  return list;
 };
