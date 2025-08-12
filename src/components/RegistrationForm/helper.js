@@ -61,10 +61,6 @@ export const getDOBError = (value) => {
   return !value ? "Date of birth is required" : "";
 };
 
-export const getDODError = (dob, dod) => {
-  return dod < dob ? "Invalid Date of death" : "";
-};
-
 export const getHobbiesError = (value) => {
   return !value || value.trim().length === 0 ? "Select at least one hobby" : "";
 };
@@ -87,7 +83,6 @@ const rules = {
   hobbies: getHobbiesError,
   password: getPasswordError,
   programming: getLanguageError,
-  dod: (value, user) => getDODError(user.dob, value),
   confirmPassword: (value, user) =>
     getConfirmPasswordError(value, user.password),
 };

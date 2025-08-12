@@ -44,7 +44,9 @@ export const UserRow = ({
         </td>
       )}
       <td>{id}</td>
-      <td onClick={() => handleActiveUser(id)}>{name}</td>
+      <td onClick={() => handleActiveUser(id)} className="cursor-pointer">
+        {name}
+      </td>
       <td>{email}</td>
       <td>{gender}</td>
       <td>{dob}</td>

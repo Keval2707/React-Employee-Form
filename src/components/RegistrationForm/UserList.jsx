@@ -1,6 +1,6 @@
+import { UserRow } from "../hooks/UserRow";
 import { useMemo, useState } from "react";
 import { filterUsersByTab, updateUserList } from "./helper";
-import { UserRow } from "../hooks/UserRow";
 
 export const UserList = ({
   setUser,
