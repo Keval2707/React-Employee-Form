@@ -41,9 +41,9 @@ export const UserList = ({
   const handleDeleteUser = (id) => deleteUsers([id]);
 
   const handleMultipleDelete = () => {
-    deleteUsers(checkedItems.map((item) => item.id));
-    setCheckedItems([]);
     setSelect(false);
+    setCheckedItems([]);
+    deleteUsers(checkedItems.map((item) => item.id));
   };
 
   const handleEdit = (userData) => {

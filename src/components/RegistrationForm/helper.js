@@ -70,10 +70,10 @@ export const updateUserList = (list) => {
 };
 
 export const hobbiesList = [
-  { id: 1, name: "Reading" },
-  { id: 2, name: "Travelling" },
-  { id: 3, name: "Coding" },
-  { id: 4, name: "Playing" },
+  { id: 1, name: "Coding" },
+  { id: 2, name: "Reading" },
+  { id: 3, name: "Playing" },
+  { id: 4, name: "Travelling" },
 ];
 
 const rules = {
